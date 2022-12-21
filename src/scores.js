@@ -1,4 +1,6 @@
-export default scores = [
+/* eslint-disable import/prefer-default-export */
+
+export const scores = [
   {
     id: 'score-1',
     name: 'name1',
