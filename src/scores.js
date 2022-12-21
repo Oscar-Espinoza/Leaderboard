@@ -1,4 +1,4 @@
-export const scores = [
+export default scores = [
   {
     id: 'score-1',
     name: 'name1',
