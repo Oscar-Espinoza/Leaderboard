@@ -77,10 +77,10 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-  git clone git@github.com:Oscar-Espinoza/Leaderboard.git
-  cd Leaderboard
-  npm install
-  npm run build
+  - git clone git@github.com:Oscar-Espinoza/Leaderboard.git
+  - cd Leaderboard
+  - npm install
+  - npm run build
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
