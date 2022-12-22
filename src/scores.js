@@ -16,8 +16,7 @@ const createGame = async (name) => {
   return id;
 };
 
-export const postScore = async (user, score, gameId) => {
-  return fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
+export const postScore = async (user, score, gameId) => fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -30,7 +29,6 @@ export const postScore = async (user, score, gameId) => {
     .then((res) => res.json())
     .then((data) => data.result)
     .catch((error) => error);
-};
 
 export const populateScoresApi = async (gameId) => {
   const scores = [];
@@ -40,7 +38,7 @@ export const populateScoresApi = async (gameId) => {
       for (let i = 0; i < 200; i += 1) {
         const score = data.result[i];
         if (typeof score.user === 'string' && typeof score.score === 'number') {
-          postScore(score.user, score.score, gameId)
+          postScore(score.user, score.score, gameId);
         }
       }
     });
