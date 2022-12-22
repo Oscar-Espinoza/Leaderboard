@@ -1,39 +1,39 @@
-const createGame = async (name) => {
-  let id = ''
-  await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: name,
-            }),
-          })
-            .then((res) => {
-              return res.json();
-            })
-              .then((data) => id = data.result)
-              .catch((error) => console.log('ERROR'));
-  console.log(id);
-  return id
-}
+/* eslint-disable no-unused-vars, */
 
-export const postScore = async (user, score, gameId) => {
-  return await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
+const createGame = async (name) => {
+  let id = '';
+  await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      user: user,
-      score: score,
+      name,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => id = data.result)
+    .catch((error) => error );
+  console.log(id);
+  return id;
+};
+
+export const postScore = async (user, score, gameId) => {
+  return fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user,
+      score,
     }),
   })
     .then((res) => {
       return res.json();
     })
-      .then((data) => console.log(data.result))
-      .catch((error) => console.log('ERROR'));
+    .then((data) => console.log(data.result))
+    .catch((error) => console.log('ERROR'));
 }
 
 export const populateScoresApi = async (gameId) => {
