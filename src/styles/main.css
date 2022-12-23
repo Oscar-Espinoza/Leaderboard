@@ -1,36 +1,73 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+* :focus {
+  outline: none;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
 }
 
 .main-title {
   padding: 50px 0 0 50px;
+  text-align: center;
 }
 
 .container {
   display: flex;
   width: 100%;
-  min-height: 100vh;
   gap: 40px;
   justify-content: center;
   padding-top: 60px;
 }
 
+.recent-scores {
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 300px;
+  padding-top: 10px;
+}
+.recent-scores hr {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .scores-title {
   display: inline;
+  text-align: center;
 }
 
-#scores-list {
-  border: 1px black solid;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  list-style: none;
+#scores-table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.score {
-  padding: 5px;
+#refresh-btn {
+  padding: 2px 10px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 14px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+}
+#refresh-btn:hover {
+  border-color: #2691d9;
+  transition: 0.5s;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
 }
 
 .score.pair {
@@ -41,6 +78,17 @@
   background: #b4b4b4;
 }
 
+.add-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  max-height: 300px;
+}
+
 #score-form {
   display: flex;
   flex-direction: column;
@@ -48,10 +96,24 @@
   margin-top: 20px;
 }
 
+.field {
+  position: relative;
+  border: none;
+  border-bottom: 2px solid #2691d9;
+  padding: 5px;
+}
+
 #submit-btn {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 2px 10px;
-  align-self: flex-end;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 14px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+}
+#submit-btn:hover {
+  border-color: #2691d9;
+  transition: 0.5s;
 }/*# sourceMappingURL=main.css.map */
