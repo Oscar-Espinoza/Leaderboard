@@ -4,7 +4,7 @@ import { getScores } from './scores.js';
 export const populateScoresList = async (gameId) => {
   const scores = await getScores(gameId);
   const scoresList = document.querySelectorAll('.score');
-  const scoresTableBody = document.getElementById('table-body')
+  const scoresTableBody = document.getElementById('table-body');
   if (scoresList.length !== 0) {
     [...scoresList].forEach((score) => {
       scoresTableBody.removeChild(score);

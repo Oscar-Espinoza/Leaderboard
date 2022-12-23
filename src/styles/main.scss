@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+
   :focus {
     outline: none;
   }
@@ -26,6 +27,7 @@ body {
   color: #8e44ad;
   color: rgba(0, 0, 0, 0);
   -webkit-text-stroke: 0.01px #383d52;
+
   &::before {
     content: attr(data-text);
     position: absolute;
@@ -41,13 +43,19 @@ body {
   }
 }
 
-@keyframes animate
-{
-  0%, 10%, 100%
+@keyframes animate {
+
+  0%,
+  10%,
+  100%
+
   {
     width: 0;
   }
-  70%, 90%
+
+  70%,
+  90%
+
   {
     width: 100%;
   }
@@ -91,13 +99,15 @@ body {
   color: #e9f4fb;
   font-weight: 700;
   cursor: pointer;
+
   &:hover {
     border-color: #2691d9;
     transition: 0.5s;
   }
 }
 
-td, th {
+td,
+th {
   border: 1px solid #a0a0a0;
   text-align: left;
   padding: 8px;
@@ -145,6 +155,7 @@ td, th {
   color: #e9f4fb;
   font-weight: 700;
   cursor: pointer;
+
   &:hover {
     border-color: #2691d9;
     transition: 0.5s;
