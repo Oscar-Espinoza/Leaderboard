@@ -7,19 +7,27 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <h1 class="main-title">Leaderboard</h1>
+  <div class="title-container">
+    <h1 data-text="LEADERBOARD" class="main-title">LEADERBOARD</h1>
+  </div>
   <div class="container">
     <div class="recent-scores">
       <h2 class="scores-title">Recent Scores</h2>
       <button id="refresh-btn">Refresh</button>
-      <ul id="scores-list">
-      </ul>
+      <table id="scores-table">
+        <tbody id="table-body">
+          <tr>
+            <th>User</th>
+            <th>Score</th>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="add-score">
       <h2>Add your score</h2>
       <form id="score-form">
-        <input type="text" name="name" id="name">
-        <input type="number" name="score" id="score">
+        <input type="text" name="name" id="name" placeholder="username" class="field">
+        <input type="number" name="score" id="score" placeholder="score" class="field">
         <input type="submit" value="Submit" id="submit-btn">
       </form>
     </div>
