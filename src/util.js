@@ -20,7 +20,3 @@ export const populateScoresList = async (gameId) => {
   }
   return scores;
 };
-
-export const fillScoresArr = async (arr, gameId) => {
-  arr = await populateScoresList(gameId);
-};
