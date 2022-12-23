@@ -1,24 +1,49 @@
-/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-unused-vars, */
 
-export const scores = [
-  {
-    id: 'score-1',
-    name: 'name1',
-    score: 'score 1',
+const createGame = async (name) => {
+  const id = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => data.result)
+    .catch((error) => error);
+  return id;
+};
+
+export const postScore = async (user, score, gameId) => fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
   },
-  {
-    id: 'score-2',
-    name: 'name2',
-    score: 'score 2',
-  },
-  {
-    id: 'score-3',
-    name: 'name3',
-    score: 'score 3',
-  },
-  {
-    id: 'score-4',
-    name: 'name4',
-    score: 'score 4',
-  },
-];
+  body: JSON.stringify({
+    user,
+    score,
+  }),
+})
+  .then((res) => res.json())
+  .then((data) => data.result)
+  .catch((error) => error);
+
+export const populateScoresApi = async (gameId) => {
+  const scores = [];
+  await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores/')
+    .then((res) => res.json())
+    .then((data) => {
+      for (let i = 0; i < 200; i += 1) {
+        const score = data.result[i];
+        if (typeof score.user === 'string' && typeof score.score === 'number') {
+          postScore(score.user, score.score, gameId);
+        }
+      }
+    });
+};
+
+export const getScores = async (gameId) => fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`)
+  .then((res) => res.json())
+  .then((data) => data.result);
