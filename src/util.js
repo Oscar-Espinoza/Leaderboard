@@ -5,7 +5,7 @@ export const populateScoresList = async (gameId) => {
   const scores = await getScores(gameId);
   const scoresList = document.getElementById('scores-list');
   if (scoresList.children.length !== 0) {
-    [...scoresList.children].forEach(score => {
+    [...scoresList.children].forEach((score) => {
       scoresList.removeChild(score);
     });
   }
