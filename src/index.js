@@ -1,15 +1,12 @@
 import './styles/main.scss';
-import { populateScoresList, refresh } from './util.js';
+import { populateScoresList } from './util.js';
 import { postScore } from './scores.js';
 
-const gameId = 'zDajvCCZWwCARahxB4k3';
-let scoresArr = [];
-populateScoresList(gameId).then((res) => {
-  scoresArr = res;
-});
+const gameId = 'ZacHwHA6naFGwPa81E7n';
+populateScoresList(gameId);
 
 document.getElementById('refresh-btn').addEventListener('click', () => {
-  refresh(scoresArr);
+  populateScoresList(gameId);
 });
 
 document.getElementById('score-form').addEventListener('submit', (e) => {

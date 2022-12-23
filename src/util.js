@@ -3,9 +3,13 @@ import { getScores } from './scores.js';
 
 export const populateScoresList = async (gameId) => {
   const scores = await getScores(gameId);
-  const startPoint = Math.floor(Math.random() * 50);
   const scoresList = document.getElementById('scores-list');
-  for (let i = startPoint; i < startPoint + 10; i += 1) {
+  if (scoresList.children.length !== 0) {
+    [...scoresList.children].forEach(score => {
+      scoresList.removeChild(score);
+    });
+  }
+  for (let i = 0; i < scores.length; i += 1) {
     const score = scores[i];
     const newScore = document.createElement('li');
     newScore.id = score.id;
@@ -19,19 +23,4 @@ export const populateScoresList = async (gameId) => {
 
 export const fillScoresArr = async (arr, gameId) => {
   arr = await populateScoresList(gameId);
-};
-
-export const refresh = (scoresArr) => {
-  const newScores = [];
-  const startPoint = Math.floor(Math.random() * 49);
-  const scoresList = document.getElementById('scores-list');
-
-  for (let i = startPoint; i < startPoint + 10; i += 1) {
-    newScores.push(scoresArr[i]);
-  }
-
-  [...scoresList.children].forEach((scoreEl, index) => {
-    const score = newScores[index];
-    scoreEl.innerText = `${score.user}: ${score.score}`;
-  });
 };
